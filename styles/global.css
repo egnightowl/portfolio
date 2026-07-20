@@ -1,0 +1,432 @@
+/* ==========================================================================
+   1. WEB FONTS IMPORT (폰트 자동 로드)
+   ========================================================================== */
+/* 영문/숫자용 고성능 모노스페이스 폰트 (구글 CDN) */
+/* 국문/영문/숫자 통합 - 가독성 최적화 프리텐다드 서체만 로드 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* 국문용 가독성 최적화 폰트 (눈누 CDN) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* ==========================================================================
+   2. DESIGN SYSTEM VARIABLES
+   ========================================================================== */
+:root {
+  --bg: #FDF8E1;
+  --bg2: #121211;
+  --panel: #161514;
+  --ink: #000000;
+  --muted: #8f8e86;
+  --faint: #5b5a54;
+  --line: rgba(245, 244, 238, .12);
+  --line2: rgba(245, 244, 238, .07);
+  --y: #06402B;
+  --y2: #236C2E;
+  --y-pale: #fff099;
+  --y-soft: #ffe880;
+  
+  /* 🌟 폰트 패밀리 지정 */
+  --display: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'Space Mono', monospace;
+}
+
+/* ==========================================================================
+   3. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: rgba(255, 217, 77, .25);
+  line-height: 1.5;
+}
+
+::selection {
+  background: var(--y);
+  color: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   4. LAYOUT DECORATIONS
+   ========================================================================== */
+#ticks {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#ticks i {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--line);
+  opacity: .6;
+}
+
+#ticks .tl { top: 22px; left: 22px; border-right: none; border-bottom: none; }
+#ticks .tr { top: 22px; right: 22px; border-left: none; border-bottom: none; }
+#ticks .bl { bottom: 22px; left: 22px; border-right: none; border-top: none; }
+#ticks .br { bottom: 22px; right: 22px; border-left: none; border-top: none; }
+
+/* Sticky Mini Header Brand Button */
+#brandMini {
+  position: fixed;
+  z-index: 40;
+  left: clamp(18px, 4vw, 40px);
+  top: 30px;
+  text-align: left;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: 1.25;
+  max-width: 62vw;
+  cursor: pointer;
+  color: var(--ink);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease .12s, visibility .5s;
+}
+
+#brandMini .em {
+  color: var(--y2);
+}
+
+.engaged #brandMini {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   5. INTRO HERO SCREEN
+   ========================================================================== */
+#hero {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(80px, 12vh, 120px) 22px 26px;
+  overflow-y: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-inner {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(26px, 4.5vh, 54px);
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--y);
+}
+
+.eyebrown {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: black;
+}
+
+.eyebrow b {
+  color: var(--display);
+  font-weight: 400;
+  font-family: var(--display);
+  
+}
+
+#brand {
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.16;
+  font-size: clamp(30px, 5.4vw, 60px);
+}
+
+#brand .em { color: var(--y); }
+
+#brand .sub {
+  display: block;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: .28em;
+  letter-spacing: .02em;
+  color: var(--muted);
+  margin-top: 1em;
+}
+
+/* 타원 내비게이션 레이아웃 */
+#ovals {
+  display: flex;
+  gap: 14px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.oval {
+  position: relative;
+  width: 230px;
+  height: 110px;
+  border: 1.5px solid var(--y);
+  border-radius: 50%/50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: .28s cubic-bezier(.6, 0, .2, 1);
+  background: rgba(255, 255, 255, .012);
+}
+
+.oval .num { 
+  font-family: var(--mono); 
+  font-size: 12px; 
+  color: var(--y2); 
+  margin-bottom: 5px; 
+}
+
+.oval .ko { 
+  font-size: 22px; 
+  font-weight: 800; 
+  letter-spacing: -0.01em;
+}
+
+
+.oval .en { 
+  font-family: var(--mono); 
+  font-size: 11px; 
+  letter-spacing: .18em; 
+  color: var(--muted); 
+  margin-top: 4px; 
+  text-transform: uppercase; 
+}
+
+.oval:hover {
+  border-color: var(--y);
+  background: var(--y);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px -16px rgba(255, 217, 77, .6);
+}
+
+.oval:hover .ko { color: var(--bg); }
+.oval:hover .num { color: #ddead1; }
+.oval:hover .en { color: #c7ddb5; }
+
+.sig { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+.sig span {
+  font-family: var(--display); font-size: 15px; font-weight: 500; color: var(--y);
+  border: 1px solid var(--y); background: rgba(21, 107, 28, 0.07);
+  padding: 7px 14px; border-radius: 30px;
+}
+
+#hero .foot { font-family: var(--display); font-size: 12px; color: var(--muted); margin-top: 34px; text-align: center; }
+#hero .foot b { color: var(--ink); }
+#hero .foot .cr { font-size: 11px; color: var(--faint); margin-top: 9px; }
+
+/* ==========================================================================
+   6. NAVIGATION TABS & WORKSPACE
+   ========================================================================== */
+#tabs {
+  position: fixed;
+  z-index: 30;
+  top: 30px;
+  right: clamp(22px, 4vw, 40px);
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease .15s, visibility .5s;
+}
+
+.engaged #tabs { opacity: 1; visibility: visible; }
+
+#tabs button {
+  font-family: var(--mono); font-size: 12px; text-transform: uppercase;
+  color: var(--muted); padding: 8px 12px; border-radius: 40px; transition: .2s;
+}
+
+#tabs button:hover { color: var(--ink); }
+#tabs button.active { color: var(--bg); background: var(--y); font-weight: 700; }
+
+#detail {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .55s ease .25s, visibility .55s;
+  padding: 118px clamp(22px, 7vw, 90px) 120px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.engaged #detail { opacity: 1; visibility: visible; }
+
+.crumb { font-family: var(--display); font-size: 18px; color: var(--muted); text-transform: uppercase; margin-bottom: 26px; display: flex; gap: 9px; }
+.crumb button { color: var(--y); font-size: 16px; }
+.crumb .cur { color: var(--y2); font-size: 16px; font-weight: 600; }
+.sep { font-size: 14px;}
+
+.page-h { font-size: clamp(28px, 4vw, 48px); font-weight: 900; margin-bottom: 8px; }
+.page-h .em { color: var(--y); }
+.page-sub { color: var(--muted); font-size: 17px; margin-bottom: 42px; max-width: 800px; }
+
+/* ==========================================================================
+   7. INNER COMPONENTS STYLES
+   ========================================================================== */
+/* About Panel */
+.lang-toggle { display: inline-flex; border: 1px solid var(--y); border-radius: 40px; overflow: hidden; margin-bottom: 38px; }
+.lang-toggle button { font-family: var(--display); font-size: 15px; padding: 9px 20px; color: var(--muted); }
+.lang-toggle button.active { background: var(--y); color: var(--bg); font-weight: 700; }
+.about-tag { font-size: clamp(24px, 3.4vw, 40px); font-weight: 900; margin-bottom: 46px; white-space: pre-line; line-height: 1.4; }
+.about-tag .em { color: var(--y); }
+.about-sec { display: grid; grid-template-columns: 200px 1fr; gap: 18px 40px; padding: 30px 0; border-top: 1px solid var(--y); }
+.about-sec:last-child {
+  border-bottom: 1px solid var(--y);
+}
+.about-sec h3 { font-family: var(--display); font-size: 16px; color: var(--y); text-transform: uppercase; }
+.about-sec p { color: black; font-size: 18px; line-height: 1.85; white-space: pre-line; }
+
+/* Career Timeline */
+.career-now { font-size: 18px; color: var(--muted); margin-bottom: 40px; line-height: 1.8; }
+.career-now b { color: var(--y); }
+.tl { border-left: 1px solid var(--y); margin-left: 8px; }
+.tl-item { position: relative; padding: 0 0 34px 34px; }
+.tl-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 2px solid var(--faint); }
+.tl-item.hl::before { background: var(--y); border-color: var(--y); box-shadow: 0 0 0 4px rgba(15, 14, 14, 0.14); }
+.tl-when { font-family: var(--display); font-size: 14px; color: var(--y); margin-bottom: 5px; }
+.tl-role { font-size: 20px; font-weight: 800; }
+.tl-org { color: var(--muted); font-size: 16px; margin: 2px 0 7px; }
+.tl-desc { color: rgb(29, 29, 29); font-size: 16px; line-height: 1.7; }
+.blk-h { font-family: var(--display); font-size: 14px; color: var(--y); text-transform: uppercase; margin: 50px 0 18px; padding-top: 24px; border-top: 1px solid var(--y); }
+.proj { display: grid; grid-template-columns: 1fr auto; gap: 6px 20px; padding: 15px 0; border-bottom: 0.5px solid rgb(224, 224, 224); }
+.proj .pn { font-weight: 700; font-size: 16.5px; }
+.proj .pm { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 26px; }
+.skill h4 { font-family: var(--display); font-size: 11px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+.chip { display: inline-block; font-size: 14px; padding: 6px 12px; border: 1px solid #696969; border-radius: 30px; margin: 0 6px 8px 0; color: #696969; }
+.chip.y { border: 1px solid var(--y); background: rgba(21, 107, 28, 0.07); color: var(--y) }
+.vimeo-btn { display: inline-flex; align-items: center; gap: 9px; margin-top: 12px; font-family: var(--mono); font-size: 15px; color: var(--bg); background: var(--y); padding: 11px 18px; border-radius: 40px; text-decoration: none; font-weight: 700; }
+
+/* Grid Cards System */
+.grid { display: grid; gap: 16px; }
+.type-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.course-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.card { position: relative; text-align: left; border: 1px solid var(--y); background: var(--bg); border-radius: 4px; overflow: hidden; transition: .25s; display: flex; flex-direction: column; width: 100%; }
+.card:hover { border-color: var(--y); transform: translateY(-3px); box-shadow: 0 18px 50px -28px rgba(255, 217, 77, .5); }
+.card .thumb { aspect-ratio: 16/10; background: #000 center/cover no-repeat; border-bottom: 1px solid var(--line2); }
+.card .meta { padding: 15px 16px 16px; background: var(--bg);}
+.card .idx { font-family: var(--mono); font-size: 11px; color: var(--y2); display: block; margin-bottom: 7px; }
+.card .t { font-size: 17px; font-weight: 800; line-height: 1.3; color: black }
+.card .ten { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
+.card .d { color: var(--muted); font-size: 13px; margin-top: 8px; }
+.card .cnt { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 11px; background: rgba(10, 10, 10, .78); border: 1px solid var(--line); padding: 4px 9px; border-radius: 30px; color: var(--y-pale); backdrop-filter: blur(4px); z-index: 2; }
+
+/* Canvas Slideshow Workspace */
+.stage { position: relative; }
+.stage-frame { position: relative; border: 1px solid var(--line); background: #000; border-radius: 4px; overflow: hidden; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+.stage-frame img { width: 100%; height: 100%; object-fit: contain; user-select: none; pointer-events: none; }
+.wm { position: absolute; inset: 0; pointer-events: none; overflow: hidden; opacity: .10; }
+.wm::after {
+  content: 'YUJIN KOH · PORTFOLIO   YUJIN KOH · PORTFOLIO   YUJIN KOH · PORTFOLIO';
+  position: absolute; inset: -40%; color: #fff; font-family: var(--mono); font-size: 15px; transform: rotate(-30deg); white-space: pre-wrap; line-height: 5.2; word-spacing: 18px; text-align: center;
+}
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(10, 10, 10, .6); border: 1px solid var(--line); color: var(--ink); font-size: 20px; display: flex; align-items: center; justify-content: center; transition: .2s; backdrop-filter: blur(4px); z-index: 3; }
+.nav-btn:hover { background: var(--y); color: #0a0a0a; border-color: var(--y); }
+.nav-btn.prev { left: 14px; }
+.nav-btn.next { right: 14px; }
+.stage-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; gap: 16px; flex-wrap: wrap; }
+.stage-bar .lab { font-size: 15px; font-weight: 700; }
+.stage-bar .tc { font-family: var(--mono); font-size: 14px; color: var(--y); }
+.dots { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+.dots button { width: 26px; height: 4px; border-radius: 3px; background: var(--line); transition: .2s; }
+.dots button.on { background: var(--y); width: 34px; }
+
+/* Contact Forms */
+.contact-wrap { max-width: 640px; }
+.contact-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px 24px; padding: 18px 0; border-top: 1px solid rgba(94, 94, 94, 0.12); align-items: baseline; }
+.contact-row:last-child { border-bottom: 1px solid var(--line); }
+.contact-row .k { font-family: var(--mono); font-size: 14px; color: var(--muted); text-transform: uppercase; }
+.contact-row .v { font-size: 20px; }
+.contact-row .v.big { font-size: 22px; font-weight: 800; }
+.mail-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 18px; color: var(--y); border: 1px solid var(--y); padding: 9px 16px; border-radius: 40px; transition: .2s; font-family: var(--display); font-weight: 600; }
+.mail-btn:hover { background: var(--y); color: var(--bg); }
+.mailmsg { font-size: 12px; color: var(--y2); margin-top: 8px; font-family: var(--mono); }
+.grad-title { font-size: 16px; font-weight: 600; vertical-align: middle; }
+.play-circle { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--y); color: #0a0a0a; text-decoration: none; font-size: 12px; margin-left: 12px; vertical-align: middle; transition: .2s; }
+.play-circle:hover { background: var(--y-pale); transform: scale(1.1); }
+
+/* Global Footers */
+.page-cr { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--faint); text-align: center; }
+
+.video-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 5px 12px;
+  border: 1px solid var(--y); 
+  background: rgba(21, 107, 28, 0.07);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all .2s ease;
+}
+
+.page-subtitle {
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MOBILE ADAPTATIONS
+   ========================================================================== */
+@media (max-width: 720px) {
+  .about-sec, .contact-row, .proj { grid-template-columns: 1fr; gap: 8px; }
+  .proj .pm { text-align: left; }
+  #brand { font-size: clamp(30px, 8.6vw, 44px); }
+  #ovals { gap: 12px; }
+  .oval { width: 46%; min-width: 148px; height: 82px; }
+  #brandMini { font-size: 13px; max-width: 72vw; top: 26px; }
+  #tabs {
+    top: auto; bottom: 16px; right: 50%; transform: translateX(50%);
+    background: rgba(10, 10, 10, .72); border: 1px solid var(--line); border-radius: 40px; padding: 4px; backdrop-filter: blur(6px); z-index: 45;
+  }
+  #detail { padding: 92px 20px 110px; }
+  #hero { padding: 80px 18px 22px; }
+}
