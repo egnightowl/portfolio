@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/global.css';
 import type { Category, ViewState, Lang } from './types/portfolio';
 import { ABOUT, CAREER, CONTACT_DATA, PORTFOLIO, TYPE_DESC, CATEN } from './data/portfolioData';
