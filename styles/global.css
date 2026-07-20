@@ -358,7 +358,7 @@ button {
 .card .t { font-size: 17px; font-weight: 800; line-height: 1.3; color: black }
 .card .ten { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 4px; text-transform: uppercase; }
 .card .d { color: var(--muted); font-size: 13px; margin-top: 8px; }
-.card .cnt { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 11px; background: rgba(10, 10, 10, .78); border: 1px solid var(--line); padding: 4px 9px; border-radius: 30px; color: var(--y-pale); backdrop-filter: blur(4px); z-index: 2; }
+.card .cnt { position: absolute; top: 12px; right: 12px; font-family: var(--mono); font-size: 11px; background: rgba(10, 10, 10, .78); border: 1px solid var(--line); padding: 4px 9px; border-radius: 30px; color: #13c12d; backdrop-filter: blur(4px); z-index: 2; }
 
 /* Canvas Slideshow Workspace */
 .stage { position: relative; }
@@ -369,16 +369,37 @@ button {
   content: 'YUJIN KOH · PORTFOLIO   YUJIN KOH · PORTFOLIO   YUJIN KOH · PORTFOLIO';
   position: absolute; inset: -40%; color: #fff; font-family: var(--mono); font-size: 15px; transform: rotate(-30deg); white-space: pre-wrap; line-height: 5.2; word-spacing: 18px; text-align: center;
 }
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(10, 10, 10, .6); border: 1px solid var(--line); color: var(--ink); font-size: 20px; display: flex; align-items: center; justify-content: center; transition: .2s; backdrop-filter: blur(4px); z-index: 3; }
-.nav-btn:hover { background: var(--y); color: #0a0a0a; border-color: var(--y); }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(10, 10, 10, .6); border: 1px solid var(--line); color: white; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: .2s; backdrop-filter: blur(4px); z-index: 3; }
+
 .nav-btn.prev { left: 14px; }
 .nav-btn.next { right: 14px; }
 .stage-bar { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; gap: 16px; flex-wrap: wrap; }
 .stage-bar .lab { font-size: 15px; font-weight: 700; }
 .stage-bar .tc { font-family: var(--mono); font-size: 14px; color: var(--y); }
-.dots { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
-.dots button { width: 26px; height: 4px; border-radius: 3px; background: var(--line); transition: .2s; }
-.dots button.on { background: var(--y); width: 34px; }
+.dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.dots button {
+  width: 26px;
+  height: 4px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(128, 127, 127, 0.1);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.dots button:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.dots button.on {
+  width: 34px;
+  background: var(--y);
+}
 
 /* Contact Forms */
 .contact-wrap { max-width: 640px; }
