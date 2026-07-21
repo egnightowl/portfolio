@@ -461,7 +461,13 @@ button {
   #brand { font-size: clamp(30px, 8.6vw, 44px); }
   #ovals { gap: 12px; }
   .oval { width: 46%; min-width: 148px; height: 82px; }
-  #brandMini { font-size: 13px; max-width: 72vw; top: 26px; }
+  #topbar {
+    height: 60px;
+  }
+  #brandMini {
+    font-size: 13px;
+    max-width: 72vw;
+  }
   #tabs {
     top: auto; bottom: 16px; right: 50%; transform: translateX(50%);
     background: rgba(10, 10, 10, .72); border: 1px solid var(--line); border-radius: 40px; padding: 4px; backdrop-filter: blur(6px); z-index: 45;
@@ -525,7 +531,7 @@ button {
   }
 
   #brandMini {
-    max-width: 60vw;
+    max-width: 75vw;
     font-size: 12px;
     top: 20px;
     left: 16px;
