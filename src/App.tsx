@@ -72,9 +72,18 @@ function App() {
     <div className={isEngaged ? 'engaged' : ''}>
       <div id="ticks"><i className="tl"></i><i className="tr"></i><i className="bl"></i><i className="br"></i></div>
 
-      <button id="brandMini" aria-label="홈으로" onClick={goHome}>
-        제작 전 과정을 이해하고 설계하는 <span className="em">교육 콘텐츠 디자이너</span>
-      </button>
+      <header id="topbar">
+        <button id="brandMini" aria-label="홈으로" onClick={goHome}>
+          제작 전 과정을 이해하고 설계하는 <span className="em">교육 콘텐츠 디자이너</span>
+        </button>
+        {/* Dynamic Tab Navigation */}
+        <nav id="tabs">
+          {(['about', 'career', 'portfolio', 'contact'] as Category[]).map(c => (
+            <button key={c} className={view.cat === c ? 'active' : ''} onClick={() => openCategory(c)}>{CATEN[c]}</button>
+          ))}
+        </nav>
+      </header>
+  
 
       {/* Hero Home Screen */}
       <section id="hero" style={{ display: isEngaged ? 'none' : 'flex' }}>
@@ -99,12 +108,6 @@ function App() {
         <div className="foot"><b>고유진</b> &nbsp;·&nbsp; YUJIN KOH<div className="cr">© 2026 YUJIN KOH · All rights reserved.</div></div>
       </section>
 
-      {/* Dynamic Tab Navigation */}
-      <nav id="tabs">
-        {(['about', 'career', 'portfolio', 'contact'] as Category[]).map(c => (
-          <button key={c} className={view.cat === c ? 'active' : ''} onClick={() => openCategory(c)}>{CATEN[c]}</button>
-        ))}
-      </nav>
 
       {/* Main Dynamic Workspace Container */}
       {isEngaged && (
