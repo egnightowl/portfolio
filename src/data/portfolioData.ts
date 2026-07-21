@@ -383,7 +383,7 @@ export const PORTFOLIO: PortfolioType[] = [
     en: "HANDS · ON",
     courses: [
       {
-        label: "스타트업을 위한 특허법 및 지식재산권",
+        label: "기업 직무교육 · AI 활용(LangChain)",
         count: 8,
         imgs: [
           "/portfolio/01_실습형삼성SDS_AI_Lv_2_4모듈_08_20251.png",
