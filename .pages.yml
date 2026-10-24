@@ -124,6 +124,25 @@ content:
               - { name: title, label: 과정 제목, type: string }
               - { name: folder, label: 이미지 폴더, type: string, description: "예: lecture/course-01 — 미디어(Media)에서 이 폴더에 이미지를 올리면 이름순으로 자동 표시" }
 
+  - name: artworks
+    label: 아트워크
+    type: file
+    path: content/artworks.yml
+    fields:
+      - { name: intro, label: 목록 위 안내 문장, type: text }
+      - name: works
+        label: 작품
+        type: object
+        list: true
+        fields:
+          - { name: title, label: 제목, type: string }
+          - { name: en, label: 영문 제목, type: string }
+          - { name: year, label: 연도, type: string }
+          - { name: medium, label: 매체 · 형식, type: string }
+          - { name: description, label: 소개, type: text }
+          - { name: link, label: 작품 주소, type: string, description: "사이트 안 작품: artworks/폴더이름/ — 바깥 사이트: https://..." }
+          - { name: thumbnail, label: 썸네일 파일 이름, type: string, description: "content/artworks/ 폴더에 올린 이미지 이름 (예: yesunderstand.png)" }
+
   - name: contact
     label: 연락처
     type: file

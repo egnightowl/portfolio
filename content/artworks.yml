@@ -1,0 +1,17 @@
+# 아트워크 (Art Works)
+# 작품을 추가하려면 works에 한 칸을 더 쓰세요.
+# link: 사이트 안 작품은 artworks/폴더이름/ , 바깥 사이트는 https:// 로 시작하는 주소
+# thumbnail: content/artworks/ 폴더에 넣은 이미지 파일 이름 (없으면 비워 두기)
+
+intro: 미술을 전공하며 만든 웹 기반 작업입니다. 작품을 누르면 직접 체험할 수 있습니다.
+works:
+  - title: 오해의 오해
+    en: yes, understand.
+    year: 2020 / 2026 리빌딩
+    medium: 인터랙티브 웹 · 메신저 형식
+    description: |-
+      오랜만에 연락 온 친구와 메시지를 주고받는 작품입니다.
+      관객은 답장을 고를 수 있지만, 어떤 대답을 해도 대화는 끝내 맞닿지 않습니다.
+      소통을 위한 소통에 대한 이야기입니다.
+    link: artworks/yesunderstand/
+    thumbnail: yesunderstand.png

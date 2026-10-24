@@ -4,7 +4,8 @@ import about from '../content/about.yml';
 import career from '../content/career.yml';
 import contact from '../content/contact.yml';
 import portfolio from '../content/portfolio.yml';
-import type { SiteData, AboutData, CareerData, ContactData, PortfolioData, WorkType } from './types/content';
+import artworks from '../content/artworks.yml';
+import type { SiteData, AboutData, CareerData, ContactData, PortfolioData, WorkType, ArtworksData } from './types/content';
 
 export const SITE = site as SiteData;
 export const ABOUT = about as AboutData;
@@ -33,6 +34,20 @@ export const WORK: { intro: string; types: WorkType[] } = {
   types: (portfolio as PortfolioData).types.map((t) => ({
     ...t,
     courses: (t.courses ?? []).map((c) => ({ ...c, imgs: imagesIn(c.folder) })).filter((c) => c.imgs.length > 0),
+  })),
+};
+
+// Art works: thumbnails live next to the list in content/artworks/, internal links get the site's base path.
+const thumbs = import.meta.glob('../content/artworks/*.{png,jpg,jpeg,webp,gif}', {
+  eager: true, query: '?url', import: 'default',
+}) as Record<string, string>;
+const thumbUrl = (name?: string) => (name ? thumbs[`../content/artworks/${name}`] ?? '' : '');
+const linkUrl = (link: string) => (/^https?:\/\//.test(link) ? link : import.meta.env.BASE_URL + link.replace(/^\/+/, ''));
+
+export const ART = {
+  intro: (artworks as ArtworksData).intro,
+  works: ((artworks as ArtworksData).works ?? []).map((w) => ({
+    ...w, href: linkUrl(w.link), thumb: thumbUrl(w.thumbnail), external: /^https?:\/\//.test(w.link),
   })),
 };
 

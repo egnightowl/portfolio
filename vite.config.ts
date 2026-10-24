@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { parse } from 'yaml'
@@ -16,4 +17,13 @@ export default defineConfig({
   // GitHub Pages address: https://egnightowl.github.io/portfolio/
   base: '/portfolio/',
   plugins: [react(), yamlContent()],
+  build: {
+    rollupOptions: {
+      // Each art work is its own page: add a line here when a new one gets its own folder in artworks/.
+      input: {
+        main: resolve(import.meta.dirname, 'index.html'),
+        yesunderstand: resolve(import.meta.dirname, 'artworks/yesunderstand/index.html'),
+      },
+    },
+  },
 })

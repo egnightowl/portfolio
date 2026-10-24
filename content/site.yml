@@ -20,4 +20,5 @@ menu:
   about: { ko: 자기소개서, en: About }
   career: { ko: 경력 상세기술서, en: Career }
   portfolio: { ko: 포트폴리오, en: Work }
+  artworks: { ko: 아트워크, en: Art Works }
   contact: { ko: 연락처, en: Contact }

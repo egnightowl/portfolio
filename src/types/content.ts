@@ -1,4 +1,4 @@
-export type Category = 'about' | 'career' | 'portfolio' | 'contact';
+export type Category = 'about' | 'career' | 'portfolio' | 'artworks' | 'contact';
 
 export type Lang = 'ko' | 'en';
 
@@ -36,6 +36,11 @@ export interface CareerData {
 export interface ContactData {
   intro: string;
   rows: { label: string; value: string; email?: boolean; link?: string; link_text?: string }[];
+}
+
+export interface ArtworksData {
+  intro: string;
+  works: { title: string; en?: string; year?: string; medium?: string; description?: string; link: string; thumbnail?: string }[];
 }
 
 export interface PortfolioData {

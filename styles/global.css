@@ -223,6 +223,8 @@ button {
 .oval {
   position: relative;
   width: 230px;
+  flex: 0 1 230px;
+  min-width: 0;
   height: 110px;
   border: 1.5px solid var(--y);
   border-radius: 50%/50%;
@@ -478,7 +480,13 @@ button {
 /* ==========================================================================
    9. TABLET BREAKPOINT (721px ~ 1024px)
    ========================================================================== */
+/* 아트워크 카드 */
+.art-card { text-decoration: none; color: inherit; }
+.art-card .art-desc { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 10px 0 0; }
+.art-card .art-go { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--y2); }
+
 @media (max-width: 1024px) {
+  #ovals { flex-wrap: wrap; }
   #detail {
     padding: 110px clamp(20px, 5vw, 50px) 110px;
   }

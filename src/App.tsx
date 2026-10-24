@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import '../styles/global.css';
 import type { Category, ViewState, Lang } from './types/content';
-import { SITE, ABOUT, CAREER, CONTACT, WORK, fmt } from './content';
+import { SITE, ABOUT, CAREER, CONTACT, WORK, ART, fmt } from './content';
 
-const CATEGORIES: Category[] = ['about', 'career', 'portfolio', 'contact'];
+const CATEGORIES: Category[] = ['about', 'career', 'portfolio', 'artworks', 'contact'];
 const PORTFOLIO = WORK.types;
 
 function App() {
@@ -248,6 +248,27 @@ function App() {
                   </div>
                 );
               })()}
+            </div>
+          )}
+
+          {view.cat === 'artworks' && (
+            <div>
+              <div className="crumb"><button onClick={goHome}>HOME</button><span className="sep">/</span><span className="cur">{menu.artworks.en}</span></div>
+              <h1 className="page-h">{menu.artworks.ko} <span className="em">Art Works</span></h1>
+              <p className="page-sub">{ART.intro}</p>
+              <div className="grid type-grid">
+                {ART.works.map((w, i) => (
+                  <a className="card art-card" key={i} href={w.href} {...(w.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                    <div className="thumb" style={w.thumb ? { backgroundImage: `url('${w.thumb}')` } : undefined}></div>
+                    <div className="meta">
+                      <span className="idx">{w.year}</span><div className="t">{w.title}</div>{w.en && <div className="ten">{w.en}</div>}
+                      {w.medium && <div className="d">{w.medium}</div>}
+                      {w.description && <p className="art-desc" dangerouslySetInnerHTML={{ __html: fmt(w.description) }} />}
+                      <span className="art-go">작품 보기 →</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           )}
 
