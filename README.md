@@ -103,11 +103,17 @@ content/works/
 
 ### 「오해의 오해」 대본 고치기 — `content/artworks/yesunderstand.yml`
 작품 주소: https://egnightowl.github.io/portfolio/artworks/yesunderstand/
+배경 이미지·영상 파일은 `content/artworks/yesunderstand/` 폴더에 넣어요.
 대본은 GitHub 웹에서 고쳐 주세요 (편집 화면에는 없어요).
 
 | 쓰는 법 | 뜻 |
 |---|---|
-| `- say:` 아래 줄들 | 친구가 보내는 말풍선. 한 줄 = 말풍선 하나, `- pause` = 잠깐 멈춤 |
+| `- title: { small: 첫 번째 이야기, big: 우스갯소리, en: Humor }` | 이야기 제목 화면 |
+| `- speak:` 아래 줄들 | 만나서 하는 **말** — 화면 가운데 자막처럼 한 줄씩. `- pause` = 잠깐 멈춤 |
+| `  background: { image: yesunderstand/ct-brain.jpg, dim: 0.7 }` | 그 말이 나오는 동안의 배경 이미지 (`dim` = 어둡게 0~1) |
+| `  background: { youtube: 1VM2eLhvsSM }` | 배경 유튜브 영상 (`youtu.be/` 뒤의 글자, 소리 없이 반복) |
+| `  background: { video: yesunderstand/파일.mp4 }` | 배경 동영상 파일 |
+| `- chat:` 아래 줄들 | 휴대폰으로 오는 **문자** — 한 줄 = 말풍선 하나 |
 | `- reply: [안녕!]` | 관객이 고를 답장을 직접 적기 |
 | `- reply: { pool: 공감, count: 3 }` | 「공감」 꾸러미에서 무작위 3개 |
 | `- reply: { pool: 전체, count: 3 }` | 모든 꾸러미에서 무작위 3개 |
