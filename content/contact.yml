@@ -1,0 +1,21 @@
+# 연락처 (Contact)
+
+intro: 교육 콘텐츠 기획·설계 관련 제안이나 협업 문의를 환영합니다.
+rows:
+  - label: NAME
+    value: 고유진 (Yujin Koh)
+  - label: BORN
+    value: 1995년생
+  - label: EMAIL
+    value: koh.yujin.01@gmail.com
+    email: true
+  - label: EDUCATION
+    value: |-
+      성균관대학교 미술학과 서양화전공
+      이화여자대학교 교육대학원 교육공학·HRD 석사 (재학)
+  - label: FIELD
+    value: 교육 콘텐츠 기획 · 스토리보드 설계 · 교수설계(HRD)
+  - label: 졸업작품
+    value: 세 여자 이야기 (Three Women's Story)
+    link: https://vimeo.com/431734496
+    link_text: ▶ 영상 보기

@@ -1,0 +1,80 @@
+# 포트폴리오 (Work)
+# 각 과정의 이미지는 content/works/<folder>/ 폴더에 넣으면 이름순으로 자동 표시돼요.
+
+intro: 교육 매체 유형별로 정리한 스토리보드 설계 작업입니다. 유형을 선택하면 과정별 목록을 볼 수 있습니다.
+types:
+  - name: 교안형
+    en: Lecture Slides
+    summary: PPT 기반 강의형 슬라이드
+    description: PPT 기반 강의형 슬라이드 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 대학 안전교육 · 반도체 안전
+        folder: lecture/course-01
+      - title: 교안형_KTG_사업의_이해_04
+        folder: lecture/course-02
+      - title: 대학 교양 · 기후변화와 지속가능한 세계
+        folder: lecture/course-03
+      - title: 대학 교양 · 인공지능 기초와 활용
+        folder: lecture/course-04
+  - name: 크로마형
+    en: Chroma-key
+    summary: 크로마키 발표자 합성형
+    description: 크로마키 발표자 합성형 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 기업 안전교육 · 화학물질 취급자 교육
+        folder: chroma/course-01
+      - title: 금융 임원 교육 · 데이터 마케팅
+        folder: chroma/course-02
+      - title: 공공기관 교육 · 사례로 읽는 대응전략
+        folder: chroma/course-03
+      - title: 대학 교육 · 인용법 실전 오답노트
+        folder: chroma/course-04
+      - title: 공공기관 교육 · 교통안전(우회전 일시정지)
+        folder: chroma/course-05
+      - title: 대학 전공 · 글로벌 약선본초
+        folder: chroma/course-06
+      - title: 대학 교양 · 스포츠와 사회
+        folder: chroma/course-07
+  - name: 스튜디오 실습형
+    en: STUDIO PRACTICE
+    summary: 스튜디오 촬영 + 실습 시연형
+    description: 스튜디오 촬영 + 실습 시연형 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 대학 실습 · 영상편집(프리미어 프로)
+        folder: studio-practice/course-01
+      - title: 교원 연수 · 에듀테크 활용 SEL
+        folder: studio-practice/course-02
+      - title: 직무 실습 · 바이브 코딩
+        folder: studio-practice/course-03
+  - name: 스튜디오형
+    en: STUDIO
+    summary: 스튜디오 촬영 강의형
+    description: 스튜디오 촬영 강의형 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 교양 강좌 · 심리학으로 문학 읽기
+        folder: studio/course-01
+      - title: 기업 교양 · 철학과 삶의 지혜
+        folder: studio/course-02
+      - title: 교원 연수 · 학급경영
+        folder: studio/course-03
+  - name: 실습형
+    en: HANDS · ON
+    summary: 화면 시연 중심 실습형
+    description: 화면 시연 중심 실습형 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 기업 직무교육 · AI 활용(LangChain)
+        folder: hands-on/course-01
+  - name: 미디어월
+    en: MEDIA WALL
+    summary: 미디어월(대형 스크린) 연출형
+    description: 미디어월(대형 스크린) 연출형 · 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 미디어월(대형 스크린) 연출형
+        folder: media-wall/course-01
+  - name: 애니메이션형
+    en: ANIMATION
+    summary: 모션그래픽·애니메이션형
+    description: 모션그래픽 · 애니메이션형 과정을 선택하면 페이지를 차례로 볼 수 있습니다.
+    courses:
+      - title: 대학 전공 · 동물공중보건학
+        folder: animation/course-01

@@ -1,0 +1,90 @@
+# 경력 상세기술서 (Career)
+
+intro: 콘텐츠 개발사에서의 PL 경험을 바탕으로, **2024년 9월부터 프리랜서 스토리보드 설계자**로 일하며 국내 주요 기업·대학·공공기관의 교육 콘텐츠를 매체 특성에 맞춰 설계하고 있습니다.
+timeline:
+  - when: 2026 ~ 현재
+    role: 이화여자대학교 교육대학원 · 교육공학·HRD 석사
+    org: 재학
+    desc: 실무에서 축적한 데이터와 경험을 이론으로 체계화하기 위해 진학. 학습자의 이해도를 높이는 교육공학적 설계 원리에 집중.
+    highlight: true
+  - when: 2024.09 ~ 현재
+    role: 프리랜서 · 교육 콘텐츠 스토리보드 설계자
+    org: Freelance
+    desc: 삼성전자 사내 안전교육(아나운서·성우·애니메이션형), 삼성SDS AI 직무기술교육(실습형), KT&G, 롯데 사내 교양교육(스튜디오형) 등 기업·대학·공공기관 교육 콘텐츠를 교육 취지와 매체 특성에 맞춰 설계. 원고를 받아쓰지 않고 정보 구조화에 교육공학적 설계를 결합.
+    highlight: true
+  - when: 2023.09 ~ 2024.06
+    role: 매니저 / PL · 사업지원팀
+    org: 주식회사 감동공장 (이러닝 기획사) · 계약직
+    desc: 이러닝 콘텐츠 기획·운영(PL).
+    highlight: false
+  - when: 2022.08 ~ 2023.03
+    role: 매니저 / PL · 기획3팀
+    org: 주식회사 감동공장 (이러닝 기획사) · 정규직
+    desc: K-MOOC 콘텐츠 개발 프로젝트 PL. 대학생부터 학점은행제 직장인까지 다양한 성인 학습자 대상 이러닝의 공정 관리 기준을 확립.
+    highlight: false
+  - when: 2019.07 ~ 2019.11
+    role: 취재기자 · 연예부
+    org: (주)에쓰에쓰미디어판
+    desc: 가요·예능 관련 취재 및 기사 작성.
+    highlight: false
+  - when: 2015.03 ~ 2022.08
+    role: 미술학과 서양화전공 (학사)
+    org: 성균관대학교
+    desc: 시각 언어로 복잡한 개념을 구조화하고, 관객(수용자)의 해석 과정을 고려하는 방법을 학습 — '학습자 중심 사고'의 토대.
+    highlight: false
+projects:
+  - name: 경기대학교 K-MOOC 콘텐츠 개발
+    meta: 2022.08 ~ 10 · PL · 기여 30%
+  - name: 인천대학교 K-MOOC 콘텐츠 개발
+    meta: 2022.10 ~ 2023.02 · PL · 기여 40%
+  - name: 한국해양대학교 K-MOOC 콘텐츠 개발
+    meta: 2022.12 ~ 2023.03 · PL · 기여 40%
+skills:
+  - group: 전문 영역
+    chips:
+      - text: 교수설계(ISD)
+        accent: true
+      - text: 정보 구조화
+        accent: true
+      - text: 스토리보드 설계
+        accent: true
+      - text: K-MOOC 공정관리
+        accent: false
+      - text: 매체별 설계
+        accent: false
+  - group: 매체 유형
+    chips:
+      - text: 교안형
+        accent: false
+      - text: 크로마형
+        accent: false
+      - text: 스튜디오형
+        accent: false
+      - text: 실습형
+        accent: false
+      - text: 미디어월
+        accent: false
+      - text: 애니메이션형
+        accent: false
+  - group: 도구 · AI
+    chips:
+      - text: PowerPoint·Word 고급
+        accent: false
+      - text: 레퍼런스 영상 분석
+        accent: false
+      - text: ChatGPT·Gemini·Claude
+        accent: true
+  - group: 어학 · 자격
+    chips:
+      - text: OPIc IH
+        accent: true
+      - text: TOEIC 770
+        accent: false
+      - text: 독일어 B1
+        accent: false
+      - text: 컴활 · OA 10년+
+        accent: false
+graduation:
+  title: 세 여자 이야기 (Three Women's Story)
+  meta: 서양화 · 2019
+  video: https://vimeo.com/431734496

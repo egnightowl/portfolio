@@ -1,0 +1,142 @@
+# Pages CMS (https://app.pagescms.org) 편집 화면 설정
+# 이 파일은 "편집 화면에 어떤 입력칸을 보여줄지"만 정해요. 내용은 content/ 폴더에 있어요.
+
+media:
+  input: content/works
+  output: /works
+
+content:
+  - name: site
+    label: 첫 화면 · 메뉴
+    type: file
+    path: content/site.yml
+    fields:
+      - { name: title, label: 브라우저 탭 제목, type: string }
+      - { name: name_ko, label: 이름 (한글), type: string }
+      - { name: name_en, label: 이름 (영문), type: string }
+      - { name: headline, label: 첫 화면 큰 제목, type: text, description: "줄바꿈 그대로 표시. ==강조색== **굵게**" }
+      - { name: headline_en, label: 큰 제목 아래 영문, type: string }
+      - { name: keywords, label: 키워드 칩, type: string, list: true }
+      - { name: copyright, label: 저작권 문구, type: string }
+      - name: menu
+        label: 메뉴 이름
+        type: object
+        fields:
+          - { name: about, label: 자기소개, type: object, fields: [{ name: ko, label: 한글, type: string }, { name: en, label: 영문, type: string }] }
+          - { name: career, label: 경력, type: object, fields: [{ name: ko, label: 한글, type: string }, { name: en, label: 영문, type: string }] }
+          - { name: portfolio, label: 포트폴리오, type: object, fields: [{ name: ko, label: 한글, type: string }, { name: en, label: 영문, type: string }] }
+          - { name: contact, label: 연락처, type: object, fields: [{ name: ko, label: 한글, type: string }, { name: en, label: 영문, type: string }] }
+
+  - name: about
+    label: 자기소개서
+    type: file
+    path: content/about.yml
+    fields:
+      - name: ko
+        label: 국문
+        type: object
+        fields:
+          - { name: tag, label: 맨 위 문구, type: text, description: "==강조색== **굵게**" }
+          - name: sections
+            label: 문단
+            type: object
+            list: true
+            fields:
+              - { name: title, label: 소제목, type: string }
+              - { name: text, label: 본문, type: text, description: "빈 줄 = 문단 나눔" }
+      - name: en
+        label: English
+        type: object
+        fields:
+          - { name: tag, label: Top line, type: text }
+          - name: sections
+            label: Sections
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Title, type: string }
+              - { name: text, label: Text, type: text }
+
+  - name: career
+    label: 경력 상세기술서
+    type: file
+    path: content/career.yml
+    fields:
+      - { name: intro, label: 맨 위 소개 문장, type: text, description: "**굵게** 쓴 부분이 강조색으로 보여요" }
+      - name: timeline
+        label: 경력 · 학력 (위에서부터 최신)
+        type: object
+        list: true
+        fields:
+          - { name: when, label: 기간, type: string }
+          - { name: role, label: 직함 · 과정, type: string }
+          - { name: org, label: 소속, type: string }
+          - { name: desc, label: 설명, type: text }
+          - { name: highlight, label: 강조 표시, type: boolean }
+      - name: projects
+        label: 주요 프로젝트
+        type: object
+        list: true
+        fields:
+          - { name: name, label: 프로젝트명, type: string }
+          - { name: meta, label: 기간 · 역할, type: string }
+      - name: skills
+        label: 역량 · 도구 · 어학
+        type: object
+        list: true
+        fields:
+          - { name: group, label: 묶음 이름, type: string }
+          - name: chips
+            label: 항목
+            type: object
+            list: true
+            fields:
+              - { name: text, label: 이름, type: string }
+              - { name: accent, label: 강조색, type: boolean }
+      - name: graduation
+        label: 졸업작품
+        type: object
+        fields:
+          - { name: title, label: 제목, type: string }
+          - { name: meta, label: 분야 · 연도, type: string }
+          - { name: video, label: 영상 링크, type: string }
+
+  - name: portfolio
+    label: 포트폴리오
+    type: file
+    path: content/portfolio.yml
+    fields:
+      - { name: intro, label: 목록 위 안내 문장, type: text }
+      - name: types
+        label: 유형
+        type: object
+        list: true
+        fields:
+          - { name: name, label: 유형 이름, type: string }
+          - { name: en, label: 영문 이름, type: string }
+          - { name: summary, label: 카드 한 줄 설명, type: string, description: "뒤에 'N개 과정'은 자동으로 붙어요" }
+          - { name: description, label: 유형 페이지 안내 문장, type: text }
+          - name: courses
+            label: 과정
+            type: object
+            list: true
+            fields:
+              - { name: title, label: 과정 제목, type: string }
+              - { name: folder, label: 이미지 폴더, type: string, description: "예: lecture/course-01 — 미디어(Media)에서 이 폴더에 이미지를 올리면 이름순으로 자동 표시" }
+
+  - name: contact
+    label: 연락처
+    type: file
+    path: content/contact.yml
+    fields:
+      - { name: intro, label: 안내 문장, type: text }
+      - name: rows
+        label: 항목
+        type: object
+        list: true
+        fields:
+          - { name: label, label: 항목 이름, type: string }
+          - { name: value, label: 내용, type: text }
+          - { name: email, label: 이메일 (누르면 주소 복사), type: boolean }
+          - { name: link, label: 링크 주소 (선택), type: string }
+          - { name: link_text, label: 링크 버튼 글자 (선택), type: string }
